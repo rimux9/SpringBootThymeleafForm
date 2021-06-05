@@ -19,7 +19,7 @@ import com.example.model.user.User;
 public class MainController {
 
 	@Autowired
-	UserRepository repo;
+	private UserRepository repo;
 
 	@GetMapping("/register")
 	public String showForm(Model model ) {
@@ -35,7 +35,8 @@ public class MainController {
 	@PostMapping("/register")
 	public String submitForm(@ModelAttribute("user")User user) {
 		System.out.println(user);
-		repo.save(user);
+		//repo.save(user);
+		 repo.save(user);
 		
 		return "register_success";
 		

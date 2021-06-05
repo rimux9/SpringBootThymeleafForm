@@ -26,8 +26,8 @@ public class UserRepositoryTests {
         @Test
         public void testCreateUser() {
             User user = new User();
-            user.setVardas("Rimantas");
-            user.setEmeilas("rmatuliokas@gmail.com");
+            user.setVardas("meile");
+            user.setEmeilas("rmatulas5@gmail.com");
             user.setMobilusis("+37060424987");
             user.setPastatas("Namas");
             user.setZinute("sveiki  bus reikalingas remontas");
