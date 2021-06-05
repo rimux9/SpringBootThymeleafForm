@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Meistras uzsakytas</title>
+<style type="text/css">
+
+span {
+	display: inline-block;
+	width: 200px;
+	text-align: left;
+}
+
+</style>
+</head>
+<body style="background-color:grey;">
+
+<div align="center">
+<h1>Meistras uzsakytas!</h1>
+
+
+<span>Jusu vardas:</span><span th:text="${user.vardas}"></span><br/>
+
+<span>El-pastas:</span><span th:text="${user.emeilas}"></span><br/>
+
+<span>Tel. numeris:</span><span th:text="${user.mobilusis}"></span><br/>
+
+<span>Darbu pradzia:</span><span th:text="${user.pradzia}"></span><br/>
+
+<span>Meistras:</span><span th:text="${user.meistras}"></span><br/>
+
+<span>Nauja statyba?:</span><span th:text="${user.prioritetas}"></span><br/>
+
+<span>Pastato tipas:</span><span th:text="${user.pastatas}"></span><br/>
+
+<span>Trumpas darbu aprasymas:</span><span th:text="${user.zinute}"></span><br/>
+
+<h2>Artimiausiu metu su jumis susisieksime</h2>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Meistro uzsakymas</title>
+<style type="text/css">
+
+label {
+	display: inline-block;
+	width: 200px;
+	margin: 5px;
+	text-align: left;
+}
+
+button {
+	margin: 10px;
+	padding: 5px;
+}
+input[type=text], select {
+	display: inline-block;
+	width: 200px;
+}
+input[type=checkbox] {
+	margin-right:190px;
+}
+
+</style>
+</head>
+<body style="background-color:grey;">
+<div align="center">
+<h2>Meistro uzsakymas</h2>
+<form action="#" th:action="@{/register}" th:object="${user}" method="POST">
+	<label>Jusu vardas:</label>
+	<input type="text" th:field="*{vardas}"/><br/>
+	
+	
+	
+	<label>El-pastas:</label>
+	<input type="text" th:field="*{emeilas}"/><br/>
+	
+	
+	<label>Tel numeris:</label>
+	<input type="text" th:field="*{mobilusis}"/><br/>
+	
+	
+	<label>Darbu pradzia (2021-05-29):</label>
+	<input type="text" th:field="*{pradzia}"/><br/>
+	
+	
+	<label>Meistras:</label>
+	<select th:field="*{meistras}">
+		<option th:each="p : ${professionList}" th:value="${p}" th:text="${p}" />
+	</select><br/>
+	
+	<label>Nauja statyba?:</label>
+	<input type="checkbox" th:field="*{prioritetas}"/><br/>
+	
+	
+	<label>Pastato tipas:</label>
+	<input type="radio" th:field="*{pastatas}" value="Butas"/>Butas
+	<input type="radio" th:field="*{pastatas}" value="Namas"/>Namas
+	<input type="radio" th:field="*{pastatas}" value="Prekybines patalpos"/>Prekybines patalpos<br/>
+	
+	
+	<label>Trumpas darbu aprasymas:</label>
+	<textarea rows="5" cols="25" th:field="*{zinute}"></textarea><br/>
+	
+	
+	
+	<button type="submit">Uzsakyti</button>
+
+</form>
+</div>
+</body>
+</html>
