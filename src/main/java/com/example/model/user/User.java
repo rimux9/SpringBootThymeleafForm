@@ -1,6 +1,8 @@
 package com.example.model.user;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
-import java.sql.Date;
+import javax.validation.constraints.*;
 
 @Entity
 @Table//(name = "users")
@@ -11,18 +13,23 @@ public class User {
 	private Long id;
 
 	@Column(nullable = false, length = 20)
+	@NotBlank(message = "Iveskite savo varda")
 	private String vardas;
 
 	@Column(nullable = false, unique = true, length = 45)
+	@NotBlank(message = "Prašome nurodyti el. paštą")
+	@Email(message = "Prašome įvesti teisinga el. paštą '@'")
 	private String emeilas;
 
 	@Column(nullable = false, length = 15)
+	@NotBlank(message = "Prašome nurodyti mobilu numeri")
 	private String mobilusis;
 
 	@Column(nullable = false)
 	private String pastatas;
 
 	@Column(nullable = false, length = 145)
+	@Size(max = 150)
 	private String zinute;
 
 	@Column(nullable = false)
@@ -32,7 +39,9 @@ public class User {
 	private boolean prioritetas;
 
 	@Column(nullable = false, length = 10)
-	private int pradzia;
+	@DateTimeFormat(pattern = "yyyy-mm-dd")
+	@NotNull(message = "Iveskite pageidaujama data")
+	private String pradzia;
 
 
 	public Long getId() {
@@ -155,7 +164,7 @@ public class User {
 
 
 
-	public int getPradzia() {
+	public String getPradzia() {
 		return pradzia;
 	}
 
@@ -163,7 +172,7 @@ public class User {
 
 
 
-	public void setPradzia(int pradzia) {
+	public void setPradzia(String pradzia) {
 		this.pradzia = pradzia;
 	}
 

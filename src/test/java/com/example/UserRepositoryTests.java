@@ -3,7 +3,7 @@ package com.example;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.example.model.user.User;
-import com.example.model.user.UserRepository;
+import com.example.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -26,14 +26,14 @@ public class UserRepositoryTests {
         @Test
         public void testCreateUser() {
             User user = new User();
-            user.setVardas("meile");
-            user.setEmeilas("rmatulas5@gmail.com");
-            user.setMobilusis("+37060424987");
-            user.setPastatas("Namas");
-            user.setZinute("sveiki  bus reikalingas remontas");
-            user.setMeistras("dazymas");
+            user.setVardas("Rimantas");
+            user.setEmeilas("1@gmail.com");
+            user.setMobilusis("37060424988");
+            user.setPastatas("naujas");
+            user.setZinute("Reikalingas apdailininkas");
+            user.setMeistras("Dazytojas");
             user.setPrioritetas(true);
-            user.setPradzia(20210621);
+            user.setPradzia("20210701");
 
             User savedUser = repo.save(user);
 

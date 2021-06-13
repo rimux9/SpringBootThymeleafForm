@@ -5,11 +5,33 @@
 <title>Meistro uzsakymas</title>
 <style type="text/css">
 
-label {
+	button {
+		padding: 10px;
+	}
+	form{
+		display: table;
+	}
+form div {
+	display: table-row;
+}
+label, input, span, select{
+	display: table-cell;
+	margin: 5px;
+	text-align: left;
+}
+input[type=text],select, textarea{
+	width: 200px;
+	margin: 5px;
+
+}
+form div div {
+	display: table-cell;
+}
+/*label, span {
 	display: inline-block;
 	width: 200px;
 	margin: 5px;
-	text-align: left;
+	text-align: center;
 }
 
 button {
@@ -22,7 +44,13 @@ input[type=text], select {
 }
 input[type=checkbox] {
 	margin-right:190px;
+}*/
+span {
+	color: red;
+	font-style: italic;
 }
+
+
 
 </style>
 </head>
@@ -30,44 +58,61 @@ input[type=checkbox] {
 <div align="center">
 <h2>Meistro uzsakymas</h2>
 <form action="#" th:action="@{/register}" th:object="${user}" method="POST">
+
+	<div>
 	<label>Jusu vardas:</label>
-	<input type="text" th:field="*{vardas}"/><br/>
-	
-	
-	
+	<input type="text" th:field="*{vardas}"/>
+	<span th:if="${#fields.hasErrors('vardas')}" th:errors="*{vardas}">Full name error</span>
+	</div>
+
+<div>
 	<label>El-pastas:</label>
-	<input type="text" th:field="*{emeilas}"/><br/>
-	
-	
+	<input type="text" th:field="*{emeilas}"/>
+	<span th:if="${#fields.hasErrors('emeilas')}" th:errors="*{emeilas}">Emeil error</span>
+</div>
+
+<div>
 	<label>Tel numeris:</label>
-	<input type="text" th:field="*{mobilusis}"/><br/>
-	
-	
-	<label>Darbu pradzia (2021-05-29):</label>
-	<input type="text" th:field="*{pradzia}"/><br/>
-	
-	
+	<input type="text" th:field="*{mobilusis}"/>
+	<span th:if="${#fields.hasErrors('mobilusis')}" th:errors="*{mobilusis}">Mobile error</span>
+</div>
+
+<div>
+	<label>Darbu pradzia:</label>
+	<input type="date" th:field="*{pradzia}"/>
+	<span th:if="${#fields.hasErrors('pradzia')}" th:errors="*{pradzia}">date error</span>
+</div>
+
+<div>
 	<label>Meistras:</label>
 	<select th:field="*{meistras}">
 		<option th:each="p : ${professionList}" th:value="${p}" th:text="${p}" />
-	</select><br/>
-	
+	</select>
+</div>
+
+<div>
 	<label>Nauja statyba?:</label>
-	<input type="checkbox" th:field="*{prioritetas}"/><br/>
-	
-	
+	<input type="checkbox" th:field="*{prioritetas}"/>
+	<span th:if="${#fields.hasErrors('prioritetas')}" th:errors="*{prioritetas}">priority error</span>
+</div>
+
+<div>
 	<label>Pastato tipas:</label>
 	<input type="radio" th:field="*{pastatas}" value="Butas"/>Butas
 	<input type="radio" th:field="*{pastatas}" value="Namas"/>Namas
-	<input type="radio" th:field="*{pastatas}" value="Prekybines patalpos"/>Prekybines patalpos<br/>
-	
-	
+	<input type="radio" th:field="*{pastatas}" value="Prekybines patalpos"/>Prekybines patalpos
+</div>
+<div>
 	<label>Trumpas darbu aprasymas:</label>
-	<textarea rows="5" cols="25" th:field="*{zinute}"></textarea><br/>
-	
-	
-	
-	<button type="submit">Uzsakyti</button>
+	<textarea rows="5" cols="25" th:field="*{zinute}"></textarea>
+	<span th:if="${#fields.hasErrors('zinute')}" th:errors="*{zinute}">text error</span>
+</div>
+
+<div>
+<div></div>
+
+<div><button type="submit">Uzsakyti</button></div>
+</div>
 
 </form>
 </div>
